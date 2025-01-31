@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split_receipt/components/bottom_button.dart';
+import 'package:split_receipt/components/page_container.dart';
+import 'package:split_receipt/pages/transactions/components/transaction_item.dart';
+import 'package:split_receipt/pages/transactions/components/transaction_textfield.dart';
 
 class TransactionsPage extends StatefulWidget {
   static String path = '/transactions';
@@ -19,9 +23,40 @@ class TransactionsPage extends StatefulWidget {
 class _TransactionsPageState extends State<TransactionsPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Transactions Page'),
+    return PageContainer(
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text("Transactions"),
+                  TransactionTextfield(prefix: Text("Name")),
+                  const SizedBox(height: 8),
+                  TransactionTextfield(prefix: Text("\$")),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                      onPressed: () {}, child: Text("Add Transaction")),
+                  const SizedBox(height: 16),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        TransactionItem(
+                          name: "Sample",
+                          amount: 123,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          BottomButton(
+            title: "Continue",
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }

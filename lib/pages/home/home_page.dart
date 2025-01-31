@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split_receipt/components/page_container.dart';
 import 'package:split_receipt/pages/transactions/transactions_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,8 +20,8 @@ class HomePage extends StatelessWidget {
       context.push(TransactionsPage.path);
     }
 
-    return Scaffold(
-        body: Center(
+    return PageContainer(
+        child: Center(
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
