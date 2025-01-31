@@ -1,0 +1,1 @@
+ /Users/nicolaslukita/Documents/Side-Repo/split_receipt/.dart_tool/flutter_build/3db0cb8ec1c356aeedb9e413d671f302/native_assets.yaml: 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split_receipt/router.dart';
+import 'package:split_receipt/theme.dart';
 
 class RouterInitializer extends StatefulWidget {
   const RouterInitializer({super.key});
@@ -15,7 +16,7 @@ class _RouterInitializerState extends State<RouterInitializer> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(),
+      theme: context.themeData,
       routerConfig: mainRouterInstance,
     );
   }

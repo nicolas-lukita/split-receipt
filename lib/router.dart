@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:split_receipt/pages/home/home_page.dart';
+import 'package:split_receipt/pages/transactions/transactions_page.dart';
 
 final appNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'navigatorKey');
 
@@ -10,6 +11,7 @@ String? _redirect(BuildContext context, GoRouterState state) {
 
 final mainRoutes = [
   HomePage.route,
+  TransactionsPage.route,
 ];
 
 GoRouter mainRouter() {

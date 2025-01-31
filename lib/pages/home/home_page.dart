@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split_receipt/pages/transactions/transactions_page.dart';
 
 class HomePage extends StatelessWidget {
   static String path = '/home';
@@ -14,6 +15,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Hi");
+    onPressEqualSplit() {
+      context.push(TransactionsPage.path);
+    }
+
+    return Scaffold(
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+            onPressed: onPressEqualSplit, child: Text("Equal Split")),
+        ElevatedButton(onPressed: null, child: Text("Custom Split"))
+      ],
+    )));
   }
 }
