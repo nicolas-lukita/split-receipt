@@ -224,6 +224,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "hive_ce",
+      "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/hive_ce-2.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "http_multi_server",
       "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/http_multi_server-3.2.2",
       "packageUri": "lib/",
@@ -234,6 +240,12 @@
       "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/http_parser-4.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "hydrated_bloc",
+      "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/hydrated_bloc-10.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "io",
@@ -422,6 +434,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "synchronized",
+      "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/synchronized-3.3.0+3",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
       "name": "term_glyph",
       "rootUri": "file:///Users/nicolaslukita/.pub-cache/hosted/pub.dev/term_glyph-1.2.1",
       "packageUri": "lib/",
@@ -494,7 +512,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-02-02T15:26:28.117611Z",
+  "generated": "2025-02-02T15:41:47.525714Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/nicolaslukita/development/flutter",
