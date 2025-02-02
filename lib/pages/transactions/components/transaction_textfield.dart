@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TransactionTextfield extends StatelessWidget {
-  const TransactionTextfield({super.key, required this.prefix});
+  const TransactionTextfield(
+      {super.key,
+      required this.prefix,
+      required this.controller,
+      required this.onChanged});
   final Widget prefix;
+  final TextEditingController controller;
+  final Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +37,8 @@ class TransactionTextfield extends StatelessWidget {
           Expanded(
             child: TextField(
               keyboardType: TextInputType.number,
+              controller: controller,
+              onChanged: onChanged,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12),

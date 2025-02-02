@@ -21,6 +21,30 @@ class TransactionsPage extends StatefulWidget {
 }
 
 class _TransactionsPageState extends State<TransactionsPage> {
+  TextEditingController transactionNameController = TextEditingController();
+  TextEditingController transactionAmountController = TextEditingController();
+  String transactionName = '';
+  double transactionAmount = 0;
+
+  onChangeTransactionName(String value) {
+    setState(() {
+      transactionName = value;
+    });
+  }
+
+  onChangeTransactionAmount(String value) {
+    setState(() {
+      transactionAmount = double.parse(value);
+    });
+  }
+
+  onPressAddTransaction() {
+    setState(() {
+      transactionNameController.clear();
+      transactionAmountController.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageContainer(
@@ -33,12 +57,21 @@ class _TransactionsPageState extends State<TransactionsPage> {
                 child: Column(
                   children: [
                     Text("Transactions"),
-                    TransactionTextfield(prefix: Text("Name")),
+                    TransactionTextfield(
+                      prefix: Text("Name"),
+                      controller: transactionNameController,
+                      onChanged: onChangeTransactionName,
+                    ),
                     const SizedBox(height: 8),
-                    TransactionTextfield(prefix: Text("\$")),
+                    TransactionTextfield(
+                      prefix: Text("\$"),
+                      controller: transactionAmountController,
+                      onChanged: onChangeTransactionAmount,
+                    ),
                     const SizedBox(height: 16),
                     ElevatedButton(
-                        onPressed: () {}, child: Text("Add Transaction")),
+                        onPressed: onPressAddTransaction,
+                        child: Text("Add Transaction")),
                     const SizedBox(height: 16),
                     SingleChildScrollView(
                       child: Column(
