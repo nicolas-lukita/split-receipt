@@ -26,13 +26,13 @@ Map<String, dynamic> _$EqualSplitStateToJson(EqualSplitState instance) =>
 
 Transaction _$TransactionFromJson(Map<String, dynamic> json) => Transaction(
       id: json['id'] as String,
-      title: json['title'] as String,
+      name: json['name'] as String,
       amount: (json['amount'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$TransactionToJson(Transaction instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'name': instance.name,
       'amount': instance.amount,
     };

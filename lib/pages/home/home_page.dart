@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split_receipt/blocs/equal_split/bloc.dart';
 import 'package:split_receipt/components/page_container.dart';
 import 'package:split_receipt/pages/transactions/transactions_page.dart';
 
@@ -17,6 +19,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     onPressEqualSplit() {
+      context.read<EqualSplitBloc>().add(ClearEqualSplitState());
       context.push(TransactionsPage.path);
     }
 

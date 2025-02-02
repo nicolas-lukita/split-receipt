@@ -41,12 +41,12 @@ class EqualSplitState extends Equatable {
 @JsonSerializable()
 class Transaction extends Equatable {
   final String id;
-  final String title;
+  final String name;
   final double amount;
 
   const Transaction({
     required this.id,
-    required this.title,
+    required this.name,
     required this.amount,
   });
 
@@ -56,5 +56,5 @@ class Transaction extends Equatable {
   Map<String, dynamic> toJson() => _$TransactionToJson(this);
 
   @override
-  List<Object?> get props => [id, title, amount];
+  List<Object?> get props => [id, name, amount];
 }

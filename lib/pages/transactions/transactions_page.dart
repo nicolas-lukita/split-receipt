@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:split_receipt/blocs/equal_split/bloc.dart';
+import 'package:split_receipt/blocs/equal_split/state.dart';
 import 'package:split_receipt/components/bottom_button.dart';
 import 'package:split_receipt/components/page_container.dart';
 import 'package:split_receipt/pages/transactions/components/transaction_item.dart';
@@ -39,10 +42,28 @@ class _TransactionsPageState extends State<TransactionsPage> {
   }
 
   onPressAddTransaction() {
+    // TODO: add validator here
+
+    context.read<EqualSplitBloc>().add(AddTransaction(
+          transaction: Transaction(
+            id: DateTime.now().millisecondsSinceEpoch.toString(),
+            name: transactionName,
+            amount: transactionAmount,
+          ),
+        ));
+
     setState(() {
       transactionNameController.clear();
       transactionAmountController.clear();
     });
+
+    FocusScope.of(context).unfocus();
+  }
+
+  onRemoveTransaction(String transactionId) {
+    context
+        .read<EqualSplitBloc>()
+        .add(RemoveTransaction(transactionId: transactionId));
   }
 
   @override
@@ -73,15 +94,19 @@ class _TransactionsPageState extends State<TransactionsPage> {
                         onPressed: onPressAddTransaction,
                         child: Text("Add Transaction")),
                     const SizedBox(height: 16),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          TransactionItem(
-                            name: "Sample",
-                            amount: 123,
+                    BlocBuilder<EqualSplitBloc, EqualSplitState>(
+                      builder: (context, state) {
+                        return SingleChildScrollView(
+                          child: Column(
+                            children: state.transactions.map((transaction) {
+                              return TransactionItem(
+                                transaction: transaction,
+                                onRemoveTransaction: onRemoveTransaction,
+                              );
+                            }).toList(),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     )
                   ],
                 ),

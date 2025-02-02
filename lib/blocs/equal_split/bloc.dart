@@ -11,6 +11,7 @@ class EqualSplitBloc extends HydratedBloc<EqualSplitEvent, EqualSplitState> {
     on<AddTransaction>(_onAddTransaction);
     on<RemoveTransaction>(_onRemoveTransaction);
     on<UpdateNumberOfPeople>(_onUpdateNumberOfPeople);
+    on<ClearEqualSplitState>(_onClearEqualSplitState);
   }
 
   void _onAddTransaction(AddTransaction event, Emitter<EqualSplitState> emit) {
@@ -29,6 +30,11 @@ class EqualSplitBloc extends HydratedBloc<EqualSplitEvent, EqualSplitState> {
   void _onUpdateNumberOfPeople(
       UpdateNumberOfPeople event, Emitter<EqualSplitState> emit) {
     emit(state.copyWith(numberOfPeople: event.numberOfPeople));
+  }
+
+  void _onClearEqualSplitState(
+      ClearEqualSplitState event, Emitter<EqualSplitState> emit) {
+    emit(const EqualSplitState(transactions: [], numberOfPeople: 1));
   }
 
   @override
