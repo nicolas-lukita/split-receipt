@@ -28,28 +28,93 @@ class _TransactionsPageState extends State<TransactionsPage> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text("Transactions"),
-                  TransactionTextfield(prefix: Text("Name")),
-                  const SizedBox(height: 8),
-                  TransactionTextfield(prefix: Text("\$")),
-                  const SizedBox(height: 16),
-                  ElevatedButton(
-                      onPressed: () {}, child: Text("Add Transaction")),
-                  const SizedBox(height: 16),
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        TransactionItem(
-                          name: "Sample",
-                          amount: 123,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    Text("Transactions"),
+                    TransactionTextfield(prefix: Text("Name")),
+                    const SizedBox(height: 8),
+                    TransactionTextfield(prefix: Text("\$")),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                        onPressed: () {}, child: Text("Add Transaction")),
+                    const SizedBox(height: 16),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          TransactionItem(
+                            name: "Sample",
+                            amount: 123,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Column(
+              children: [
+                const Text("Add Tip"),
+                Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(child: Text("\$5")),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(child: Text("\$5")),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(child: Text("\$5")),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(child: Text("\$5")),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(child: Text("\$5")),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
           BottomButton(

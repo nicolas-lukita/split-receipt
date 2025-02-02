@@ -22,13 +22,17 @@ class HomePage extends StatelessWidget {
 
     return PageContainer(
         child: Center(
-            child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(
-            onPressed: onPressEqualSplit, child: Text("Equal Split")),
-        ElevatedButton(onPressed: null, child: Text("Custom Split"))
-      ],
+            child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: onPressEqualSplit, child: Text("Equal Split")),
+          const SizedBox(height: 16),
+          ElevatedButton(onPressed: null, child: Text("Custom Split"))
+        ],
+      ),
     )));
   }
 }
